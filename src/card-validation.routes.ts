@@ -3,10 +3,6 @@ import cardController from "./card-validation.controller.js";
 
 const router = Router();
 
-router.post("/validate", async (req, res) => {
-  // Call the validateCard method from the cardController
-  await cardController.validateCard(req, res);
-});
-
+router.post("/", cardController.validateCard);
 
 export default router;

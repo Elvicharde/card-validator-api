@@ -4,6 +4,7 @@ import cardRouter from "./card-validation.routes.js";
 import errorMiddleware from "./middlewares/error.middleware.js";
 import { HTTP_STATUS_CODES } from "./lib/http-status-codes.js";
 
+const API_BASE_PATH = "/api/v1";
 const app = express();
 
 // middlewares
@@ -11,7 +12,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 // routes
-app.use("/card", cardRouter);
+app.use(`${API_BASE_PATH}/card-validations`, cardRouter);
 
 // handle 404 errors
 app.use((req, res) => {
