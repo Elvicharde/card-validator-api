@@ -1,0 +1,38 @@
+{
+  "name": "card-validator-api",
+  "version": "1.0.0",
+  "description": "A TypeScript REST API for validating card numbers using the Luhn algorithm.",
+  "private": true,
+  "type": "module",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "node --env-file=.env --import tsx src/server.ts",
+    "build": "tsc",
+    "start": "node --env-file=.env dist/server.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "typescript",
+    "rest-api"
+  ],
+  "author": "Oguntuase Victor A.",
+  "email": "freelanceel0@gmail.com",
+  "license": "MIT",
+  "repository": {
+    "type": "Github",
+    "url": "https://github.com/Elvicharde/card-validator-api.git"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "morgan": "^1.12.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^26.4.0",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2"
+  }
+}
