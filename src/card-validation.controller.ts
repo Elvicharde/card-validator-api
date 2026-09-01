@@ -5,7 +5,7 @@ import { validateCardNumber } from "./card-validation.service.js";
 
 const cardController = {
   async validateCard(req: Request, res: Response<CardValidationApiResponse>) {
-    const { cardNumber } = req.body;
+    const cardNumber = req.body?.cardNumber;
     const isValid = validateCardNumber(cardNumber);
     res.json({
       status: "success",

@@ -5,7 +5,7 @@ export type ApiSuccessResponse<T> = {
 };
 
 export type ApiErrorResponse = {
-  status: "failure";
+  status: "error";
   message: string;
 };
 
