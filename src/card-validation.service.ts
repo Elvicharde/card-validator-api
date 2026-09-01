@@ -1,10 +1,10 @@
 import HTTPError from "./lib/http-error.js";
 import { HTTP_STATUS_CODES } from "./lib/http-status-codes.js";
-import { luhnCheck } from "./lib/luhn.js";
+import { isLuhnValid } from "./lib/luhn.js";
 
 export const validateCardNumber = (cardNumber: string): boolean => {
   assertValidCardInput(cardNumber);
-  return luhnCheck(cardNumber);
+  return isLuhnValid(cardNumber);
 };
 
 function assertValidCardInput(
