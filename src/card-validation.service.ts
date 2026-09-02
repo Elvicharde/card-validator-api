@@ -2,7 +2,7 @@ import HTTPError from "./lib/http-error.js";
 import { HTTP_STATUS_CODES } from "./lib/http-status-codes.js";
 import { isLuhnValid } from "./lib/luhn.js";
 
-export const validateCardNumber = (cardNumber: string): boolean => {
+export const validateCardNumber = (cardNumber: unknown): boolean => {
   assertValidCardInput(cardNumber);
   return isLuhnValid(cardNumber);
 };
