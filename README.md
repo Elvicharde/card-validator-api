@@ -1,6 +1,6 @@
 # Card Validator API
 
-A minimal REST API that validates payment card numbers using the [Luhn algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm).
+A minimal REST API that validates payment card numbers using the [Luhn Formula](https://www.pcisecuritystandards.org/faqs/1137/ "PCI Security Standards Council FAQ on the Luhn Formula / Modulus 10").
 
 The API accepts a card number, validates the request input, checks the card number against the Luhn checksum, and returns whether it is valid.
 
@@ -92,9 +92,7 @@ POST /api/v1/card-validations
 
 ### Card Number Length
 
-The API accepts card numbers containing between 10 and 19 digits.
-
-This range is based on the Primary Account Number (PAN) numbering structure defined by ISO/IEC 7812-1. ISO/IEC 7812-1:2017 specifies the numbering system for card issuer identification and PANs.
+The API accepts card numbers containing between 10 and 19 digits. This range is based on the Primary Account Number (PAN) numbering structure defined by [ISO/IEC 7812-1:2017](https://www.iso.org/standard/70484.html "ISO standard for the Primary Account Number numbering system").
 
 The API does not currently apply card-network-specific length rules. Instead, it validates the general PAN format and applies the Luhn checksum.
 
