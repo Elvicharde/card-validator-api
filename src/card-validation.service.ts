@@ -2,7 +2,7 @@ import HTTPError from "./lib/http-error.js";
 import { HTTP_STATUS_CODES } from "./lib/http-status-codes.js";
 import { isLuhnValid } from "./lib/luhn.js";
 
-export const validateCardNumber = (cardNumber: string): boolean => {
+export const validateCardNumber = (cardNumber: unknown): boolean => {
   assertValidCardInput(cardNumber);
   return isLuhnValid(cardNumber);
 };
@@ -38,10 +38,10 @@ function assertValidCardInput(
     );
   }
 
-  if (cardNumber.length < 13 || cardNumber.length > 19) {
+  if (cardNumber.length < 10 || cardNumber.length > 19) {
     throw new HTTPError(
       HTTP_STATUS_CODES.BAD_REQUEST,
-      "cardNumber must contain between 13 and 19 digits",
+      "cardNumber must contain between 10 and 19 digits",
     );
   }
 }
