@@ -180,13 +180,20 @@ src/
 │
 └── types/
     └── card-validation.types.ts
+tests/
+├── unit/
+│   ├── luhn-checksum.test.ts
+│   └── card-validation.service.test.ts
+│
+└── integration/
+    └── card-validation.test.ts
 ```
 
 The project currently has only one route, controller, and service, so they live directly under `src/` rather than in separate folders. See [Design Decisions](docs/design-decisions.md) for the reasoning.
 
 ## Testing
 
-Automated tests have not yet been implemented. The API has been manually, exploratively tested against valid card numbers, invalid checksums, missing/empty request bodies, missing or malformed `cardNumber`, invalid lengths, malformed JSON, unsupported HTTP methods, and unknown routes.
+Automated unit and integration tests have been implemented, alongside manual exploratory testing covering valid card numbers, invalid checksums, missing/empty request bodies, missing or malformed `cardNumber`, invalid lengths, malformed JSON, unsupported HTTP methods, and unknown routes.
 
 ## Future API Documentation
 
@@ -195,3 +202,7 @@ Swagger/OpenAPI documentation at `/api/v1/docs` is a possible future enhancement
 ## Learn More
 
 For detailed engineering rationale behind the architecture, API design, and validation strategy, see [Design Decisions](docs/design-decisions.md).
+
+## Author
+
+Developed by **Oguntuase Victor A.** as part of a technical assessment.

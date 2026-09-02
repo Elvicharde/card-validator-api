@@ -120,9 +120,11 @@ Identifying or authenticating users, managing accounts, issuing tokens, and mana
 
 ## Testing Strategy
 
-Automated tests do not currently exist. The API has been manually, exploratively tested against valid card numbers, invalid checksums, missing/empty request bodies, missing `cardNumber`, invalid types/characters/lengths, malformed JSON, unsupported HTTP methods, and unknown routes.
+Automated unit and integration tests have been implemented — twenty-eight (28) tests across four (4) suites — in addition to the manual exploratory testing performed against valid card numbers, invalid checksums, missing/empty request bodies, missing `cardNumber`, invalid types/characters/lengths, malformed JSON, unsupported HTTP methods, and unknown routes.
 
-The intended automated structure:
+The native `node:test` and `node:assert/strict` modules were adopted to reduce external dependencies while providing the core functionality required for test execution, grouping, and assertions. **Supertest** was introduced specifically for HTTP integration testing because it provides a convenient interface for making requests directly against the Express application without manually starting or managing the development server. This allows integration tests to exercise the application's HTTP request lifecycle in an isolated and automated manner.
+
+The adopted automated structure:
 
 ```
 tests/
@@ -134,8 +136,8 @@ tests/
     └── card-validation.test.ts
 ```
 
-- **Unit tests** should cover Luhn algorithm behavior (valid/invalid checksums, boundary conditions) and service-level input validation, in isolation.
-- **Integration tests** should exercise the full HTTP request lifecycle, verifying status codes, response shapes, and handling of invalid or malformed input.
+- **Unit tests** cover Luhn algorithm behavior and service-level input validation in isolation.
+- **Integration tests** exercise the full HTTP request lifecycle, including Express request parsing, routing, controllers, services, error middleware, and HTTP responses. Tests verify status codes, response shapes, and the handling of invalid or malformed input.
 
 ## Security Considerations
 
@@ -153,7 +155,6 @@ Card numbers are processed only for the duration of a request and are never pers
 
 ## Limitations
 
-- No automated test suite yet.
 - No card network detection.
 - No support for formatted (spaced/hyphenated) card numbers.
 - No persistence, authentication, or authorization.
