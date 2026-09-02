@@ -6,6 +6,12 @@ The API accepts a card number, validates the request input, checks the card numb
 
 This project is intentionally small and stateless. It is **not** a payment processing system. Passing the Luhn algorithm does not mean that a card exists, was issued, is active, belongs to a real person, has available funds, or can be used to complete a transaction — it only means the number satisfies the implemented validation rules and the Luhn checksum.
 
+## Live API
+
+The API is deployed and available at:
+
+[https://card-validator-api-ggo2.onrender.com/](https://card-validator-api-ggo2.onrender.com/)
+
 ## Features
 
 - Validates card number presence, type, format, and length.
@@ -194,6 +200,10 @@ The project currently has only one route, controller, and service, so they live 
 ## Testing
 
 Automated unit and integration tests have been implemented, alongside manual exploratory testing covering valid card numbers, invalid checksums, missing/empty request bodies, missing or malformed `cardNumber`, invalid lengths, malformed JSON, unsupported HTTP methods, and unknown routes.
+
+## Deployment
+
+The API is currently deployed as a web service using Render. The service automatically deploys updates pushed to the connected repository.
 
 ## Future API Documentation
 
