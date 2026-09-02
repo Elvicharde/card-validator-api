@@ -38,10 +38,10 @@ function assertValidCardInput(
     );
   }
 
-  if (cardNumber.length < 13 || cardNumber.length > 19) {
+  if (cardNumber.length < 10 || cardNumber.length > 19) {
     throw new HTTPError(
       HTTP_STATUS_CODES.BAD_REQUEST,
-      "cardNumber must contain between 13 and 19 digits",
+      "cardNumber must contain between 10 and 19 digits",
     );
   }
 }
